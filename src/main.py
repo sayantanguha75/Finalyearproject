@@ -65,4 +65,4 @@ if __name__=='__main__':
         query = parse_qs(parsed.query, keep_blank_values=True)
         print(f"QUERY: {query}")
     data = pd.DataFrame.from_records(res)
-    data.to_csv("/Users/nishanali/WorkSpace/grow_bit/results/test_run.csv")
+    
