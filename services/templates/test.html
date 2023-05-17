@@ -1,0 +1,93 @@
+<!-- //templates/index.html -->
+<html>
+<head>
+<title>FeildCore: Intelligent Barcode Scanner</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+    <h1 align="center"><img src="/static/uploads/glance_logo.png" alt="HTML5 Icon" style="width:256px;height:64px;"> </h1>
+    <!-- <h1 align="center">Glance</h1> -->
+</p>
+<div class="container">   
+<div class="row">
+    <h2>Select a File to Process</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+
+    {% if barcode_dtls %}
+    <table> 
+        {% for key, value in barcode_dtls.items() %}
+           <tr>
+                <tr><td>--------------------------------------------------------------</td></tr>
+                <tr><th> {{ key }} </th></tr>
+                <tr><td>--------------------------------------------------------------</td></tr>
+                <td> {% for k, v in value.items() %}</td>
+                        <tr>
+                        <th> {{ k }}</th>
+                        <td> {{ v }}</td>
+                        </tr>
+                    {% endfor %}
+                <!-- <td> {{ value }} </td> -->
+           </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+
+
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+            
+            <p>
+                <label for="barcode_type">Choose a Bar-Code Type:</label>
+                <select class="form-control" name="barcode_type" id="barcode_type">
+                <!-- <option value="All">All</option>     -->
+                <option value="CODE128">Code 128</option>
+                <option value="CODE39">Code 39</option>
+                <option value="UPC">UPC</option>
+                </select>
+            </p>
+            
+        <p>
+            <input type="submit" value="PROCESS" class="btn btn-info">
+        </p>
+    </form>
+    <footer>
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Names:</h4>
+                <ul>
+                    <li>Name 1</li>
+                    <li>Name 2</li>
+                    <li>Name 3</li>
+                    <li>Name 4</li>
+                    <li>Name 5</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+</div>
+</body>
+</html>

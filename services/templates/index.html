@@ -1,0 +1,188 @@
+<!-- //templates/index.html -->
+<html>
+<head>
+<title>FeildCore: Intelligent Barcode Scanner</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<style>
+#header {
+    position: fixed;
+    /* top: 0px;
+    height: 100px; */
+    width: 100%; 
+    background: white;
+}
+body {
+  font-family: Arial;
+  color: rgb(0, 0, 0);
+}
+
+.split {
+  height: 58%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 39%;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2%;
+}
+
+.left {
+  left: 0;
+  background-color: white;
+  border: 4px;
+}
+
+.right {
+  right: 0;
+  background-color:white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 150px;
+  /* border-radius: 50%; */
+  border: 4px;
+}
+</style>
+<div class="container" id='header' align="center">
+<p>
+    <h1 align="center"><img src="/static/uploads/glance_logo.png" alt="HTML5 Icon" style="width:200px;height:100px;"> </h1>
+    <!-- <h1 align="center">Grow-BIT</h1> -->
+</p>
+<!-- <div class="container" id='header'>    -->
+<div class="row">
+    <h2>Select a File to Process</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    <!-- {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+
+    {% if barcode_dtls %}
+    <table> 
+        {% for key, value in barcode_dtls.items() %}
+           <tr>
+                <tr><td>--------------------------------------------------------------</td></tr>
+                <tr><th> {{ key }} </th></tr>
+                <tr><td>--------------------------------------------------------------</td></tr>
+                <td> {% for k, v in value.items() %}</td>
+                        <tr>
+                        <th> {{ k }}</th>
+                        <td> {{ v }}</td>
+                        </tr>
+                    {% endfor %}
+                <td> {{ value }} </td>
+           </tr>
+        {% endfor %}
+    </table>
+    {% endif %} -->
+
+
+
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+            
+            <p>
+                <label for="barcode_type">Choose a Bar-Code Type:</label>
+                <select class="form-control" name="barcode_type" id="barcode_type">
+                <!-- <option value="All">All</option>     -->
+                <option value="QRCODE">QR-CODE</option>
+                <option value="CODE128">Code 128</option>
+                <option value="CODE39">Code 39</option>
+                <option value="UPC">UPC</option>
+                </select>
+            </p>
+            
+        <p>
+            <input type="submit" value="PROCESS" class="btn btn-info">
+        </p>
+    </form>
+</div>
+</div>
+
+<div class="split left">
+    <div class="centered"></div>
+    {% if filename %}
+        <!-- <div> -->
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        <!-- </div> -->
+    {% endif %}
+</div>
+</div>
+
+<div class="split right">
+    <div class="centered"></div>
+    {% if barcode_dtls %}
+    <b style="font-family: Arial; font-size: large;">SCAN SUMMARY<b>
+    <br>
+    <table> 
+        {% for key, value in barcode_dtls.items() %}
+           <tr>
+                <tr><td>--------------------------------------------------------------</td></tr>
+                <tr><th> {{ key }} </th></tr>
+                <tr><td>--------------------------------------------------------------</td></tr>
+                <td> {% for k, v in value.items() %}</td>
+                        <tr>
+                        <th> {{ k }}</th>
+                        <td> {{ v }}</td>
+                        </tr>
+                    {% endfor %}
+                <!-- <td> {{ value }} </td> -->
+           </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+<!-- </div>
+</div> -->
+</div>
+</div>
+<footer>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Project Developed by : </h4>
+            <ul>
+                <li>Rishita Das (16900219062)</li>
+                <li>Sayantan Guha (16900219007)</li>
+                <li>Abhishek Agarwal (16900219009)</li>
+                <li>Soumyajeet Das (16900219019)</li>
+                <li>Milan Kanti Hudait (16900219003)</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

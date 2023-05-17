@@ -1,0 +1,6 @@
+,File_name,Processing_time (Mili-Sec),Decoded,Type,Original_value,Validation
+0,mba_chaiwala.jpeg,538.04,upi://pay?mode=02&pa=Q889898559@ybl&purpose=00&mc=0000&pn=PhonePeMerchant&orgid=180001&sign=MEUCIFQwTfGsaqynFydnJz0VvVxNlZDzsxJ5xUnZmTgGqKIbAiEA1xeV9vEG2biByr20kqUi05zekJpZe8iO9iWKn7w2g8E=,QRCODE,mba_chaiwala.jpeg,False
+1,amazon_pay4.jpeg,5.82,upi://pay?pa=prajos@ybl&pn=prasad%20rajeev%20joshi&tn=apay,QRCODE,amazon_pay4.jpeg,False
+2,amazon_pay5.jpeg,60.74,upi://pay?pa=AMZN0003904751@apl&pn=AmazonPay%20Merchant,QRCODE,amazon_pay5.jpeg,False
+3,amazon_pay3.jpeg,22.2,upi://pay?pa=AMZN0000127015@apl&pn=AmazonPay%20Merchant,QRCODE,amazon_pay3.jpeg,False
+4,Amazon-Pay-merchant-QR-Code.png,37.32,upi://pay?pa=nitishverma@apl&tn=ApayMerchant&pn=NITISH KUMAR,QRCODE,Amazon,False
